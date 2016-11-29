@@ -9,3 +9,10 @@ class User < ApplicationRecord
   has_many :groups
   has_many :posts
 end
+
+
+class Group < ApplicationRecord
+  belongs_to :user
+  has_many :posts
+  validates :title, presence: true
+end

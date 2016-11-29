@@ -9,9 +9,9 @@ class GroupsController < ApplicationController
   @group = Group.new
  end
 
-  def show
+ def show
    @group = Group.find(params[:id])
-   @posts = @group.posts.order("created_at DESC")
+   @posts = @group.posts.recent
  end
 
  def edit

@@ -10,10 +10,10 @@ class GroupsController < ApplicationController
  end
 
 
-   def show
-     @group = Group.find(params[:id])
-     @posts = @group.posts.order("created_at DESC")
-   end
+ def show
+   @group = Group.find(params[:id])
+   @posts = @group.posts.recent
+ end
 
  def edit
  end
@@ -43,6 +43,7 @@ class GroupsController < ApplicationController
    @group.destroy
    redirect_to groups_path, alert: "Group deleted"
  end
+
 
  private
 
